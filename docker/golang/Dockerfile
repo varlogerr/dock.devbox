@@ -1,6 +1,6 @@
 FROM golang:1.10-stretch
 
-LABEL maintainer="Konstantin Vedenskiy <varlog.err@gmail.com>"
+LABEL maintainer="Varlog <varlog.err@gmail.com>"
 
 ENV TINI_VERSION=v0.16.1 \
     THE_USER=app \
