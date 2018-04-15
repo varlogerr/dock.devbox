@@ -25,3 +25,13 @@ services:
       file: docker-compose.ruby.yml
       service: ruby
     command: []
+
+  golang_init:
+    extends:
+      file: docker-compose.golang.yml
+      service: golang_init
+  golang:
+    extends:
+      file: docker-compose.golang.yml
+      service: golang
+    command: []

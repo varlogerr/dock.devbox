@@ -1,0 +1,23 @@
+version: '2.3'
+
+services:
+  golang_base:
+    build:
+      context: docker/golang
+    volumes:
+      - ./app/golang:/app
+    working_dir: /app
+    command: []
+
+  golang_init:
+    extends:
+      file: docker-compose.golang.yml
+      service: golang_base
+    user: "root"
+    command: /bin/bash -c "chown 1000:1000 ./"
+
+  golang:
+    extends:
+      file: docker-compose.golang.yml
+      service: golang_base
+    command: []
