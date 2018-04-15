@@ -1,0 +1,25 @@
+version: '2.3'
+
+services:
+  node_base:
+    build:
+      context: docker/node
+    volumes:
+      - ./app/node:/app
+      - ./cache/nodemodules:/modules
+    working_dir: /app
+    command: []
+
+  node_init:
+    extends:
+      file: docker-compose.node.yml
+      service: node_base
+    user: "root"
+    command: >
+      /bin/bash -c "chown 1000:1000 /{app,modules}"
+
+  node:
+    extends:
+      file: docker-compose.node.yml
+      service: node_base
+    command: []

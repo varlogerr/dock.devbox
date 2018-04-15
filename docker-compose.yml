@@ -35,3 +35,13 @@ services:
       file: docker-compose.golang.yml
       service: golang
     command: []
+
+  node_init:
+    extends:
+      file: docker-compose.node.yml
+      service: node_init
+  node:
+    extends:
+      file: docker-compose.node.yml
+      service: node
+    command: []

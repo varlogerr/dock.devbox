@@ -5,4 +5,5 @@ services:
     image: debian:9.3
     volumes:
       - ./app:/app
-    command: /bin/bash -c "chown 1000:1000 /app"
+      - ./cache:/cache
+    command: /bin/bash -c "chown 1000:1000 /{app,cache}"
