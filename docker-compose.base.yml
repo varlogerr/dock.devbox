@@ -1,0 +1,8 @@
+version: '2.3'
+
+services:
+  base:
+    image: debian:9.3
+    volumes:
+      - ./app:/app
+    command: /bin/bash -c "chown 1000:1000 /app"

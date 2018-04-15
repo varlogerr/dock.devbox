@@ -1,0 +1,23 @@
+version: '2.3'
+
+services:
+  ruby_base:
+    build:
+      context: docker/ruby
+    volumes:
+      - ./app/ruby:/app
+    working_dir: /app
+    command: []
+
+  ruby_init:
+    extends:
+      file: docker-compose.ruby.yml
+      service: ruby_base
+    user: "root"
+    command: /bin/bash -c "chown 1000:1000 ./"
+
+  ruby:
+    extends:
+      file: docker-compose.ruby.yml
+      service: ruby_base
+    command: []
