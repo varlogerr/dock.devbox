@@ -3,10 +3,9 @@ FROM elixir:1.6-slim
 LABEL maintainer="Varlog <varlog.err@gmail.com>"
 
 ENV TINI_VERSION=v0.16.1 \
-    THE_USER=app \
-    THE_GROUP=app \
-    THE_HOME=/home/app \
-    APP_DIR=/app
+    THE_USER=elixir \
+    THE_GROUP=elixir \
+    THE_HOME=/home/elixir
 
 ARG THE_USER_ID=1000
 ARG THE_GROUP_ID=1000
@@ -15,7 +14,7 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /sbin
 
 RUN chmod +x /sbin/tini
 
-# create app user
+# create elixir user
 RUN addgroup -q --gid $THE_GROUP_ID $THE_GROUP \
     && adduser -q --disabled-login \
       --ingroup $THE_GROUP \
@@ -26,4 +25,4 @@ RUN addgroup -q --gid $THE_GROUP_ID $THE_GROUP \
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD :
 
-USER app
+USER ${THE_USER}
