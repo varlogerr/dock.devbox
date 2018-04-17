@@ -5,7 +5,7 @@ services:
     build:
       context: ruby
     volumes:
-      - ./app/ruby:/app
+      - ./../app/ruby:/app
     working_dir: /app
     command: []
 

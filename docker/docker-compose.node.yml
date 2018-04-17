@@ -5,8 +5,8 @@ services:
     build:
       context: node
     volumes:
-      - ./app/node:/app
-      - ./cache/nodemodules:/modules
+      - ./../app/node:/app
+      - ./../app/_cache/nodemodules:/modules
     working_dir: /app
     command: []
 
