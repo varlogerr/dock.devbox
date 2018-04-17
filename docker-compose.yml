@@ -3,45 +3,45 @@ version: '2.3'
 services:
   base:
     extends:
-      file: docker-compose.base.yml
+      file: docker/docker-compose.base.yml
       service: base
 
   elixir_init:
     extends:
-      file: docker-compose.elixir.yml
+      file: docker/docker-compose.elixir.yml
       service: elixir_init
   elixir:
     extends:
-      file: docker-compose.elixir.yml
+      file: docker/docker-compose.elixir.yml
       service: elixir
     command: []
 
   ruby_init:
     extends:
-      file: docker-compose.ruby.yml
+      file: docker/docker-compose.ruby.yml
       service: ruby_init
   ruby:
     extends:
-      file: docker-compose.ruby.yml
+      file: docker/docker-compose.ruby.yml
       service: ruby
     command: []
 
   golang_init:
     extends:
-      file: docker-compose.golang.yml
+      file: docker/docker-compose.golang.yml
       service: golang_init
   golang:
     extends:
-      file: docker-compose.golang.yml
+      file: docker/docker-compose.golang.yml
       service: golang
     command: []
 
   node_init:
     extends:
-      file: docker-compose.node.yml
+      file: docker/docker-compose.node.yml
       service: node_init
   node:
     extends:
-      file: docker-compose.node.yml
+      file: docker/docker-compose.node.yml
       service: node
     command: []

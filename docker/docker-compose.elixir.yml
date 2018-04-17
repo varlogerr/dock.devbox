@@ -3,7 +3,7 @@ version: '2.3'
 services:
   elixir_base:
     build:
-      context: docker/elixir
+      context: elixir
     volumes:
       - ./app/elixir:/app
     working_dir: /app

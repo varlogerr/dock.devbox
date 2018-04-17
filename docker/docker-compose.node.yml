@@ -3,7 +3,7 @@ version: '2.3'
 services:
   node_base:
     build:
-      context: docker/node
+      context: node
     volumes:
       - ./app/node:/app
       - ./cache/nodemodules:/modules

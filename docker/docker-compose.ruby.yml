@@ -3,7 +3,7 @@ version: '2.3'
 services:
   ruby_base:
     build:
-      context: docker/ruby
+      context: ruby
     volumes:
       - ./app/ruby:/app
     working_dir: /app

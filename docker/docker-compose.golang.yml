@@ -3,7 +3,7 @@ version: '2.3'
 services:
   golang_base:
     build:
-      context: docker/golang
+      context: golang
     volumes:
       - ./app/golang:/app
     working_dir: /app
