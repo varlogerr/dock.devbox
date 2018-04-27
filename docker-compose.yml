@@ -6,6 +6,16 @@ services:
       file: docker/docker-compose.base.yml
       service: base
 
+  erlang_init:
+    extends:
+      file: docker/docker-compose.erlang.yml
+      service: erlang_init
+  erlang:
+    extends:
+      file: docker/docker-compose.erlang.yml
+      service: erlang
+    command: []
+
   elixir_init:
     extends:
       file: docker/docker-compose.elixir.yml
