@@ -1,0 +1,23 @@
+version: '2.3'
+
+services:
+  erlang_base:
+    build:
+      context: erlang
+    volumes:
+      - ./../app/erlang:/app
+    working_dir: /app
+    command: []
+
+  erlang_init:
+    extends:
+      file: docker-compose.erlang.yml
+      service: erlang_base
+    user: "root"
+    command: /bin/bash -c "chown 1000:1000 ./"
+
+  erlang:
+    extends:
+      file: docker-compose.erlang.yml
+      service: erlang_base
+    command: []
