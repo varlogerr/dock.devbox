@@ -1,0 +1,6 @@
+run_container() {
+    util=$1
+    shift
+    flags=$@
+    docker-compose run --rm $flags $util bash
+}

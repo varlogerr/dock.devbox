@@ -1,4 +1,8 @@
 #!/bin/bash
 
-cd $(pwd) \
-&& docker-compose run --rm golang bash
+current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source ${current_dir}/includes
+
+cd ${current_dir} \
+&& run_container golang $@
