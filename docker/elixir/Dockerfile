@@ -22,7 +22,11 @@ RUN addgroup -q --gid $THE_GROUP_ID $THE_GROUP \
       --home $THE_HOME \
       --uid $THE_USER_ID $THE_USER
 
+RUN apt-get update \
+    && apt-get install -y openssl
+
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD :
 
 USER ${THE_USER}
+RUN mix local.hex --force
